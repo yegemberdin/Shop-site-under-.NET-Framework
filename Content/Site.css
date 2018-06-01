@@ -1,0 +1,446 @@
+﻿ @import url(http://fonts.googleapis.com/css?family=Open+Sans|Raleway);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Raleway);
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+.content-panel {
+    padding: 15px;
+    background-color: white;
+}
+
+#home-title {
+    
+    padding: 4px;
+    border-radius:5px;
+}
+
+#home-browse-button {
+    text-decoration:none;
+    color: black;
+}
+#home-browse-button:hover {
+    color:  rgba(54, 69, 79, .54);
+}
+
+#browse-text {
+    padding: 6px;
+    background-color: dodgerblue;
+    border: 1px solid blue;
+    border-radius: 6px;
+    margin:auto;
+    width: 130px;
+    margin-top: 40px;
+}
+
+footer {
+    background-color: lightpink;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+/*CUSTOM TAGS=======================================================================================================*/
+/* create a vertical center tag*/
+.vertical-center {
+  /*min-height: 100%;*/  /* Fallback for browsers do NOT support vh unit */
+  /*min-height: 100vh;*/ /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.black, .black a {
+  color: #000;
+}
+
+.boxed-link {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.boxed-link a {
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 2px solid;
+}
+
+#on-sale-tag {
+    display:inline-block;
+    width: 80px !important;
+    height: auto !important;
+    margin-top:0 auto;
+    margin-bottom: 0 auto;
+}
+
+.transition-image {
+}
+
+.transition-image img {
+    opacity: 1;   /* redundant, but helps illustrate what is happening */
+    -webkit-transition: 400ms; /* or however long you want */
+    -moz-transition-duration: 400ms; /* or however long you want */
+    -o-transition-duration: 400ms;
+    transition-duration: 400ms;
+}
+
+.transition-image img:hover {
+    opacity:0.8 !important;
+}
+/* END CUSTOM TAGS===================================================================================================*/
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.totalText {
+    font-size:20px;
+}
+
+.CRUD {
+    width: 40%;
+}
+
+.partial-controls {
+    padding:10px;
+    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 0.04); /*CHANGE THIS */
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* ========================== GENERIC FONTS ==================================*/
+.page-title {
+    font-size: 32px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.page-sub-title{
+    font-size:24px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#property-title {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#form-property-title {
+    font-size: 18px;
+    line-height: 90%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#content-text {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*==========================================================================*/
+
+.row.cartlink {
+    background-color: rgba(128, 128, 128, 0.15);
+    padding: 10px;
+    margin:7px;
+    border-radius:5px;
+}
+#cartlink {
+    background-color: rgba(128, 128, 128, 0.4);
+    padding: 7px;
+    border-radius:5px;
+    font-size:16px;
+}
+#cartlink > span {
+    font-size:14px;
+}
+#cartlink:hover {
+    cursor:pointer;
+}
+
+#productTitle {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+#cart {
+    background-color:rgba(128, 128, 128, 0.05);
+    padding:10px;
+    border-radius:6px;
+}
+
+#cartActionBar {
+    background-color:rgba(128, 128, 128, 0.05);
+    padding:5px;
+    border-radius:6px;
+}
+
+.orderDetailRow {
+    margin:10px;
+    background-color:rgba(128, 128, 128, 0.05);
+}
+
+#productDetails {
+    width:100%;
+    background-color:beige;
+}
+
+#productImage {
+    width: 100%;
+    height: 100%;
+    margin-top: 0 auto;
+    margin-bottom: 0 auto;
+    border-radius:4px;
+}
+
+.local-nav{
+    color: #767676;
+}
+
+#productDescription {
+    padding: 5px;
+    border-radius: 2px;
+}
+
+#productPropertyLabel {
+    font-size:16px;
+    font-style:italic;
+}
+#productPropertyTitle {
+    font-size:18px;
+    font-style:oblique;
+}
+#productPrice {
+    font-size: 24px;
+}
+
+#productDiscountPrice {
+    font-size:24px;
+    color:firebrick;
+}
+
+#productStock {
+    font-size:24px;
+}
+
+/*HOME PAGE*/
+.carousel-inner     img {
+    height: 350px !important; 
+    max-height: 350px; 
+    margin: auto
+}
+
+#hot-items img {
+    width: 100%;
+    height: 400px;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+.section-title, .products-title {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.section-title {
+    margin-top: 60px;
+
+}
+hr {
+    border-color: #999;
+    border-width: 3px;
+    background-color: black !important;
+    color: black !important;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/*PRICE FONTS*/
+.price-highlight, .price-save, .price-slashed {
+    margin: 0;
+}
+
+.price-highlight {
+    color: red !important;
+    font-weight: bold;
+    font-size: 26px;
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+}
+
+.price-slashed {
+    font-weight: 300;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+}
+
+.price-save {
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.price-neutral {
+    font-size: 26px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*PRODUCTS PAGE*/
+#deal-heading{
+
+}
+
+#products-items {
+    
+}
+
+.product-item {
+    margin-top: 15px;
+    border-left:1px dotted #c7c8ca;
+    border-right:1px dotted #c7c8ca;
+}
+
+.row-padding {
+    padding-bottom: 10px;
+}
+
+.product-image-div {
+}
+
+#products-items img {
+    width: 100%;
+    height: 100%;
+    max-width: 269px;
+    max-height: 249px;
+    position:absolute;
+    bottom: 0;
+}
+
+#deal-products-items img {
+    width: 100%;
+    height: 100%;
+    max-width: 115px;
+    max-height: 115px;
+    position: absolute;
+    bottom: 0;
+}
+
+.product-body, .product-title, .product-details, .product-details p, .product-prices a, .product-prices.col-md-4 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.product-title
+{
+    height: 70px;
+}
+
+.deal-product-title
+{
+    height: 35px;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.product-body
+{
+    height: 165px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.deal-product-body
+{
+    height: 125px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.product-prices {
+    height: 50px;
+    display: inline-block;
+}
+
+.product-prices a {
+    font-size: 15px !important;
+    top: 0;
+    right: 0;
+}
+
+.product-description {
+    font-size: 15px;
+}
+
+
+.product-desc {
+    font-size: 15px;
+    height: 100px;
+    overflow: auto;
+}
+
+.product-cart{
+    float: left;
+}
+
+.picture-box {
+  position:relative;
+  padding: 12px;
+  border-radius: 6px;
+  height: 250px;
+  width: 275px;
+  overflow: hidden;
+}
+
+.deal-picture-box {
+  position:relative;
+  padding: 12px;
+  border-radius: 6px;
+  height: 125px;
+  width: 250px;
+  overflow: hidden;
+}
+
+.create-item {
+    padding-top: 30px;
+
+}
+
+
+/*NAVBAR*/
+.navbar {
+    background-color: lightpink;
+}
+
+.navbar a {
+    color: rgba(236, 240, 241,1.0) !important;
+}
+
+/*GLYPHICON SIZES*/
+.gi-2x{font-size: 2em;}
+.gi-3x{font-size: 3em;}
+.gi-4x{font-size: 4em;}
+.gi-5x{font-size: 5em;}
+
+        .imgleft-box{float:left; border:solid 1px #cfd4c3; padding:6px; margin-right:15px; }

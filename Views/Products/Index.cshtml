@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Projectnaz.Models.Product>
+@using Projectnaz.Models
+<link href="~/Content/Products.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    IEnumerable<Product> deals = (IEnumerable<Product>)ViewData["deals"];
+}
+@*<h2 class="underline">Products</h2>*@
+
+<div class="container body-content">
+    <div class="content-panel">
+        @if (deals.Count() > 0)
+        {
+            <p class="page-title">New Sales</p>
+            <hr />
+        }
+        <div id="deal-products-items" class="row">
+            @foreach (var item in deals)
+            {
+                <div class="product-item col-md-2 col-sm-4 col-xs-6">
+                    <h4 class="col-md-12 lead page-sub-title deal-product-title">@item.Name</h4>
+                    <div class="deal-picture-box">
+                        <div class="item-image transition-image">
+                            <a href="/Products/Details/@item.ProductId">
+                                <img src="@item.Picture" />
+                            </a>
+                        </div>
+                    </div>
+                    @*<div class="product-image-div col-md-4">
+                        </div>*@
+                    <div class="deal-product-body">
+                        <div class="product-description">
+                            <div class="product-prices">
+                                @{
+                                    if (item.Price == item.DiscountedPrice)
+                                    {
+                                        <p class="price-neutral" id="content-text-sale">@String.Format("{0:C2}", item.Price)</p>
+                                    }
+                                    else
+                                    {
+
+                                        <p class="price-highlight lead">@String.Format("{0:C2}", (item.DiscountedPrice))</p>
+                                        <p class="price-slashed"><s>@String.Format("{0:C2}", item.Price)</s></p>
+                                            <p class="price-save">save @String.Format("{0:0.00}", ((1 - (item.DiscountedPrice / item.Price)) * 100))%</p>
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/Products/Details/@item.ProductId">Buy now > </a>
+                        </div>
+                        <div class="row-padding"></div>
+                    </div>
+                </div>
+                                    }
+        </div>
+        <p class="page-title">Products</p>
+        <hr />
+        <div id="products-items" class="row">
+            @foreach (var item in Model)
+            {
+                <div class="product-item col-md-4 col-sm-6 col-xs-12">
+                    <h4 class="page-sub-title product-title">@item.Name</h4>
+                    <div class="picture-box ">
+                        <div class="item-image transition-image ">
+                            <a href="/Products/Details/@item.ProductId">
+                                <img src="@item.Picture" />
+                            </a>
+                        </div>
+                    </div>
+                    @*<div class="product-image-div col-md-4">
+                        </div>*@
+                    <div class="product-body">
+                        <div class="product-description">
+                            <div class="product-prices">
+                                @{
+                                    if (item.Price == item.DiscountedPrice)
+                                    {
+                                        <p class="price-neutral" id="content-text-sale">@String.Format("{0:C2}", item.Price)</p>
+                                    }
+                                    else
+                                    {
+
+                                        <p class="price-highlight lead">@String.Format("{0:C2}", (item.DiscountedPrice))</p>
+                                        <p class="price-slashed"><s>@String.Format("{0:C2}", item.Price)</s></p>
+                                            <p class="price-save">save @String.Format("{0:0.00}", ((1 - (item.DiscountedPrice / item.Price)) * 100))%</p>
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                        <div>
+                            @{
+                                if (item.Stock == 0)
+                                {
+                                    <p class="text-warning" id="content-text">OUT OF STOCK</p>
+                                }
+                                else
+                                {
+                                    <p class="text-success" id="content-text">Stock: @item.Stock</p>
+                                }
+                            }
+                        </div>
+                        @*<div>
+                                <a href="@Url.Action("Delete", new { id = item.ProductId })"> <span class="glyphicon glyphicon-remove black"></span></a>
+                                <a href="@Url.Action("Edit", new { id = item.ProductId })"> <span class="glyphicon glyphicon-pencil black"></span></a>
+                            </div>*@
+                        <div>
+                            @{
+                                if (item.Stock > 0)
+                                {
+                                    @Html.ActionLink("Add to Cart", "AddToCart", "Orders", new { id = item.ProductId, quantity = 1 }, new { @class = "btn btn-success btn-lg" })
+                                }
+                            }
+                        </div>
+                        <div class="row-padding"></div>
+                    </div>
+                </div>
+                                }
+        </div>
+        <p id="content-text" class="create-item">
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+    <br />
+</div>

@@ -1,0 +1,28 @@
+﻿@model Projectnaz.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="container body-content">
+    <div class="content-panel">
+        <div class="partial-controls">
+            <h2 class="page-title text-center">Remove Product Order from Cart</h2>
+            <h3 class="page-sub-title text-center">Are you sure you want to remove this from the cart?</h3>
+            <div class="well">
+                <div class="text-center">
+                    <p id="content-text"><span id="property-title">Product: </span> @ViewBag.getProductName(Model.ProductId)</p>
+                    <p id="content-text"><span id="property-title">@Html.DisplayNameFor(model => model.Quantity): </span>@Html.DisplayFor(model => model.Quantity)</p>
+                    <p id="content-text"><span id="property-title">@Html.DisplayNameFor(model => model.Total): </span>$@Html.DisplayFor(model => model.Total)</p>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="text-center">
+                        <input type="submit" value="Remove" class="btn btn-danger btn-lg" /> |
+                        <a class="btn btn-primary btn-lg" href="/Orders/Details/@Model.OrderId">Back to Cart</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

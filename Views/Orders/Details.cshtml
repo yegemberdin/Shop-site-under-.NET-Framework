@@ -1,0 +1,68 @@
+﻿@model Projectnaz.Models.Order
+@using Projectnaz.Models
+@{
+    ViewBag.Title = "Details";
+    IEnumerable<OrderView> orders = (IEnumerable<OrderView>)ViewBag.orders;
+
+}
+<div class="container body-content">
+    <div class="content-panel">
+        <h2 class="page-title">Your Cart</h2>
+        <div>
+            <h4 class="page-sub-title">Current Order</h4>
+        </div>
+        <hr />
+        <div id="cart">
+            @foreach (var order in orders)
+            {
+                <div class="orderDetailRow row">
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+
+                        <img id="productImage" src="@Url.Content("~/" + order.Product.Picture)" />
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8">
+                        <div col-md-12>
+                            <p id="content-text">@order.Product.Name</p>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                            <span id="property-title">Quantity: </span>
+                            <p id="content-text">@order.OrderDetail.Quantity</p>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                            <span id="property-title">Price: </span>
+                            <p id="content-text">$@order.OrderDetail.Total</p>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <a class=" btn btn-danger btn-md" href="/OrderDetails/Delete/@order.OrderDetail.OrderDetailId">Remove</a>
+                            </div>
+                            <div>
+                                @Html.ActionLink("+", "UpdateQuantity", "Orders", new { orderID = order.OrderDetail.OrderId, orderDetailID = order.OrderDetail.OrderDetailId, amount = 1 }, new { @class = "btn btn-default btn-md" })
+                                @Html.ActionLink("-", "UpdateQuantity", "Orders", new { orderID = order.OrderDetail.OrderId, orderDetailID = order.OrderDetail.OrderDetailId, amount = -1 }, new { @class = "btn btn-default btn-md" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            @if (orders.Count() == 0)
+            {
+                <div class="jumbotron">
+                    <p class="text-center">No Products in Cart | <a href="/Products">Go Get Some</a></p>
+                </div>
+            }
+            @if (orders.Count() != 0)
+            {
+                <div id="cartActionBar">
+                    <div>
+                        <p class="totalText text-center text-info" id="property-title">Total: $@ViewBag.getTotalPrice(@Model.OrderId)</p>
+                    </div>
+                    <div>
+                        <p class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center"><a class="btn btn-success btn-lg" href="/Orders/purchased/@Model.OrderId">Purchase Items</a></p>
+                        <p class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center"><a class="btn btn-primary btn-lg" href="/Products">Continue Shopping</a> | <a class="btn btn-danger btn-lg" href="/Orders/Delete/@Model.OrderId">Clear Cart</a></p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

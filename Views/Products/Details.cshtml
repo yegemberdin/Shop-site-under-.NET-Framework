@@ -1,0 +1,58 @@
+﻿@model Projectnaz.Models.Product
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container body-content">
+    <div class="content-panel">
+        <div>
+            <a href="/Products" class="local-nav">Products </a> > <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)" class="local-nav"> @Html.DisplayFor(model => model.Name) </a>
+        </div>
+        <div class="panel-default">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+                    <img id="productImage" src="@Url.Content("~/" + Model.Picture)" />
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                        <h1 class="page-sub-title">@Html.DisplayFor(model => model.Name)</h1>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                        <p id="content-text">@Html.DisplayFor(model => model.Description)</p>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                            <div>
+                                @if (Model.DiscountedPrice == Model.Price)
+                                {
+                                    <p id="property-title">@Html.DisplayNameFor(model => model.Price): $@Html.DisplayFor(model => model.Price)</p>
+                                }
+                                @if (Model.DiscountedPrice != Model.Price)
+                                {
+                                    <p id="property-title">@Html.DisplayNameFor(model => model.Price): $@Html.DisplayFor(model => model.Price)</p>
+                                    <p id="property-title">Sale Price: $@Html.DisplayFor(model => model.DiscountedPrice)</p>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                            <div>
+                                <p id="property-title">@Html.DisplayNameFor(model => model.Stock): @Html.DisplayFor(model => model.Stock)</p>
+                            </div>
+                        </div>
+                    </div> <!--End of Inner Row-->
+                    <hr />
+                </div>
+                <div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">
+                    <div class="text-center">
+                        @Html.ActionLink("Add to Cart", "AddToCart", "Orders", new { id = Model.ProductId, quantity = 1 }, new { @class = "btn btn-success btn-lg" })
+                    </div>
+                </div>
+            </div> <!--End of Outer Row-->
+        </div> <!--End of Panel-->
+    </div>
+</div>

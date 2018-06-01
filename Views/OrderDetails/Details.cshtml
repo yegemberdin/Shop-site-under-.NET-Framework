@@ -1,0 +1,38 @@
+﻿@model Projectnaz.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container body-content">
+    <div class="content-panel">
+        <h2 class="page-title">Details</h2>
+        <div>
+            <h4 class="page-sub-title">OrderDetail</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductId)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductId)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Total)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Total)
+                </dd>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.OrderDetailId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

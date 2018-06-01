@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Projectnaz.Models.Product>
+@using Projectnaz.Models
+<link href="~/Content/Home2.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+@{
+    ViewBag.Title = "Home Page";
+    IEnumerable<Product> featuredItems = (IEnumerable<Product>)ViewData["featured"];
+    IEnumerable<Product> top = (IEnumerable<Product>)ViewData["top"];
+    IEnumerable<Product> newItems = (IEnumerable<Product>)ViewData["new"];
+}
+<div class="content front-banner" >
+    <div class="content-body" >
+        <div>
+            <div class="header" style="background-attachment:fixed;">
+                <img src="~/Content/imgs/flower.png" class="hidden-sm hidden-md hidden-lg" />
+                <img src="~/Content/imgs/flower.png" class="hidden-xs" />
+               
+                <h4 class="page-sub-title" id="home-title" style="background-color:floralwhite; text-align:center;">Featuring wedding florals and floral designs for any occasion, as well as home decor and giftware.s</h4>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content register-banner" style="background-color:antiquewhite;">
+    <div class="content-body">
+        <span class="glyphicon glyphicon-search gi-2x" ></span>
+        <h2 class="page-title" style="text-align:center;">Find your own Customers</h2>
+        <h4 class="page-sub-title"  style="text-align:center;">Believe me! It is very pleasantly to sell or share freely with flowers to people. So,register now to get your own personal catalogue.</h4>
+        <div class="boxed-link">
+            <a href="/Account/Register">
+                <h4 class="page-sub-title">REGISTER</h4>
+            </a>
+            <a href="/Products">
+                <h4 class="page-sub-title">BROWSE</h4>
+            </a>
+            
+        </div>
+    </div>
+</div>
+<div class="content hot-items" style="background-color:white;">
+    <div id="hot-items" class="content-body row">
+        <div>
+            <h2 class="page-title" style="text-align:center;">Popular Flowers</h2>
+        </div>
+        @foreach (Product item in top)
+        {
+            <div class="hot-item col-md-4 col-sm-6 col-xs-12">
+                <div class="item-image transition-image">
+                    <a href="/Products/Details/@item.ProductId">
+                        <img id="home-item-images" class="img-responsive" src="@Url.Content("~/" + @item.Picture)" />
+                    </a>
+                </div>
+                <h4 class="page-sub-title text-center" style="text-align:center;">@item.Name</h4>
+            </div>
+        }
+    </div>
+</div>
+<div class="content new-items"style="background-color:antiquewhite;">
+    <div id="hot-items" class="content-body row" >
+        <div>
+            <h2 class="page-title"style="text-align:center;">New added flowers</h2>
+        </div>
+        @foreach (Product item in newItems)
+        {
+            <div class="hot-item col-md-4 col-sm-6 col-xs-12">
+                <div class="item-image transition-image">
+                    <a href="/Products/Details/@item.ProductId">
+                        <img id="home-item-images"  class="img-responsive" src="@Url.Content("~/" + @item.Picture)" />
+                    </a>
+                </div>
+                <h4 class="page-sub-title text-center">@item.Name </h4>
+            </div>
+        }
+    </div>
+</div>

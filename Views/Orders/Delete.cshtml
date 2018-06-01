@@ -1,0 +1,44 @@
+﻿@model Projectnaz.Models.Order
+
+@{
+    ViewBag.Title = "Clear Cart";
+}
+<div class="container body-content">
+    <div class="content-panel">
+        <h2 class="page-title">Clear Your Cart</h2>
+        <h3 class="page-sub-title">Are you sure you want to clear your whole cart?</h3>
+        <div>
+            <h4 class="page-sub-title">Your Order</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Total)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Total)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.OrderDate)
+                </dd>
+            </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Yes, Clear It" class="btn btn-danger btn-lg" /> |
+                    <a class="btn btn-primary btn-lg" href="/Orders/ViewCart"> <span class="glyphicon glyphicon-shopping-cart"></span> No, Go Back to Cart</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
