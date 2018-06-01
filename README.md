@@ -1,1 +1,1 @@
-# Shop-site-under-.NET-Framework
+# Shop-site under .NET Framework for flower shop
